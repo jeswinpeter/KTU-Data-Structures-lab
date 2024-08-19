@@ -64,11 +64,11 @@
 
     //Result  
         if(flag == 2){
-            printf("%d is found in the array at position %d",x,mid+1);
+            printf("%d is found in the array at position %d\n",x,mid+1);
             time += 2;
          }
         if(flag == 0){
-            printf("%d is not found in the array ",x);
+            printf("%d is not found in the array \n",x);
             time += 2;         
          }
 
