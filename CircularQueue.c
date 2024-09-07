@@ -1,9 +1,9 @@
 #include<stdio.h>
 
-#define Max_Size 6
-int queue[Max_Size];
+int Max_Size; 
 int front = -1;
 int rear = -1;
+int queue[10];
 
 void enqueue(int value) {
 	if ((rear + 1)%Max_Size == front) {
@@ -43,10 +43,10 @@ void display() {
 		int i = front;
 		printf("------------ Queue ------------\n");
 		while(i != rear) {
-			printf("%d\t",queue[i]);
+			printf("%d -> %d\t",i,queue[i]);
 			i = (i + 1) % Max_Size;
 		}
-		printf("%d\n",queue[rear]);
+		printf("%d -> %d\n",rear,queue[rear]);
 		printf("------------ Queue ------------\n");
 	}
 }
@@ -54,7 +54,10 @@ void display() {
 int main() {
 	int option;     //Variable to store the choice the user makes
     	int value;      //Stores the value that is being enqueued to the que
-    
+    	
+    	printf("Enter Max_Size of the Queue -> ");
+        scanf("%d",&Max_Size);
+    	
         //Menu
         printf("The operations that can be performed on a Circular Queue are listed below :\n");
         printf("1 -> Enqueue(Add element)\n");
