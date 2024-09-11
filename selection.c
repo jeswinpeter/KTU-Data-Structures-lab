@@ -4,11 +4,11 @@ void main(){
 	int size;		//Size of the array
  	int i;			//Variable incremented in while loop
  	int j;			//Variable incremented in while loop
- 	int temp;		//Variable used to swap 2 array elements
+ 	
 	int a[30];		//Array used to take values
 	int time = 0;	//Variable to track time complexity of the code
 	int space = 0;	//Variable to track space complexity of the code
-	int small;		//Index of smallest element in the portion of the array that is being sorted 
+	 
 	time += 2;
 
  printf("Enter size of array: ");
@@ -31,6 +31,9 @@ void main(){
  	}
 	time += 2;
 
+//------- Selection Sort ---------
+int small;		//Index of smallest element in the portion of the array that is being sorted
+int temp;		//Variable used to swap 2 array elements
 //Selection sort loops
  	i = 0;
  	while(i < size) {
@@ -54,8 +57,9 @@ void main(){
 		time += 4;
  	}
 	time += 2;
+//-------------------------------
 
-//loop to print unsorted array
+//loop to print sorted array
 	printf("\nThe sorted array is : \n");
  	for (i = 0; i < size; i++) {
  		printf("%d\t",a[i]);
