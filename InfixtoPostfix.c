@@ -1,6 +1,6 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<ctype.h>
+#include<stdlib.h>		//To use exit 0
+#include<ctype.h>		//To use isalnum function
 
 char stack[80];
 int top = -1;
@@ -26,6 +26,7 @@ void push(char y) {
 }
 
 
+//---- Checking Precedence ----
 int priority(char y) {
 	if(y == '(') {
 		return 0;
@@ -53,7 +54,7 @@ int main() {
 	printf("The postfix expression is :\n");
 	
 	while(*e != '\0') {
-		if(isalnum(*e)) {
+		if(isalnum(*e)) {			//Checks if the character is an alphabet or a number
 			printf("%c ",*e);
 		}
 		else if(*e == '(') {        
