@@ -8,7 +8,8 @@ struct node {
 
 struct node * create() {
 	struct node *temp = (struct node *)malloc(sizeof(struct node));
-	printf("Created Node\n");
+	/*printf("Created Node\n");*/
+
 	return temp;
 }
 
@@ -57,27 +58,24 @@ int insertionAtAnyPoint(int pos, int value) {
 				printf("Error : Position element not found in the list !!!\n");
 		}
 		else {
-				Ctemp -> link = ptr -> link;
-				Ctemp -> data = value;
-				ptr -> link = Ctemp;
+			Ctemp -> link = ptr -> link;
+			Ctemp -> data = value;
+			ptr -> link = Ctemp;
 		}
 	}
 	
 }
 
-int insertionAtEnd(int value) {
+void insertionAtEnd(int value) {
 
 	Ctemp = create();
 	if( Ctemp == NULL ) {
 		printf("!!! Memory Full !!!");
-		return 0;
 	}
 	else {
 		ptr = head;
-		printf("IN else");
-		while(ptr != NULL) {
+		while(ptr -> link != NULL) {
 				ptr = ptr -> link;
-				printf("IN While");
 		}
 		ptr -> link = Ctemp;
 		Ctemp -> link = NULL;
@@ -86,16 +84,26 @@ int insertionAtEnd(int value) {
 	
 }
 
-void DeletionAtBegining() {
+struct node * deletionAtBegining(struct node * head) {
+
+	if(head == NULL) {
+		printf("The list is Empty !!!");
+	}
+	else {
+		Ctemp = head;
+		head = head -> link;
+		free(Ctemp);
+		return head;
+	}
 
 }
 
-void DeleteAtAnypos() {
-
+void deletionAtAnyPosition() {
+	printf("deleting");
 }
 
-void DeleteAtEnd() {
-
+void deletionAtEnd() {
+	printf("deleting");
 }
 
 int printList() {
@@ -115,17 +123,60 @@ int printList() {
 }
 
 int main(){
-	printf("Enter value to list : ");
-	scanf("%d",&value);
-	head = insertionAtBegining(head,value);
-	printList();
-	printf("Enter value to list : ");
-	scanf("%d",&value);
-	insertionAtAnyPoint(3,value);
-	printList();
-	printf("Enter value to list : ");
-	scanf("%d",&value);
-	insertionAtEnd(value);
-	printList();
+	printf("----- MENU -----\n");
+	printf("1 -> Insertion at begening\n");
+	printf("2 -> Insertion at Any position\n");
+	printf("3 -> Insertion at end\n");
+	printf("4 -> Deletion at begening\n");
+	printf("5 -> Deletion at Any position\n");
+	printf("6 -> Deletion at end\n");
+	printf("7 -> Display Linked list\n");
+	printf("8 -> Exit \n");
+
+	int option;
+	while(1) {
+		printf("Enter operation no you want perform: ");
+		scanf("%d",&option);
+
+		switch(option) {
+			case 1:
+				printf("Enter value to the list: ");
+				scanf("%d",&value);
+				head = insertionAtBegining(head, value);
+				break;
+			case 2:
+				printf("Enter value to the list: ");
+				scanf("%d",&value);
+				printf("Enter value after which you want to add: ");
+				scanf("%d",&pos);
+				insertionAtAnyPoint(pos, value);
+				break;
+			case 3:
+				printf("Enter value to the list: ");
+				scanf("%d",&value);
+				insertionAtEnd(value);
+				break;
+			case 4:
+				head = deletionAtBegining(head);
+				break;
+			case 5:
+				printf("Enter value that you want to delete: ");
+				scanf("%d",&value);
+				deletionAtAnyPosition();
+				break;
+			case 6:
+				deletionAtEnd();
+				break;
+			case 7:
+				printList();
+				break;
+			case 8:
+				printf("Exiting....\n");
+				return 0;
+			default:
+				printf("Invalid entry Read MENU and try again !!!!\n");
+
+		}
+	}
 	return 0;
 }
