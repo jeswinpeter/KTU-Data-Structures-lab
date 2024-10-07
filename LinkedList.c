@@ -98,12 +98,43 @@ struct node * deletionAtBegining(struct node * head) {
 
 }
 
-void deletionAtAnyPosition() {
-	printf("deleting");
+void deletionAtAnyPosition(int value) {
+	if(head == NULL) {
+		printf("The list is Empty !!!");
+	}
+	else {
+		ptr = head;
+		ptr1 = ptr -> link;
+		while(ptr1 -> link != NULL && ptr1 -> data != value) {
+			ptr = ptr -> link;
+			ptr1 = ptr1 -> link;
+		}
+		if ( ptr1 == NULL ) {
+				printf("Error : %d not found in the list !!!\n",value);
+		}
+		else {
+			Ctemp = ptr -> link ;
+			ptr -> link = ptr1 -> link;
+			free(Ctemp);
+		}
+	}
 }
 
 void deletionAtEnd() {
-	printf("deleting");
+	if(head == NULL) {
+		printf("The list is Empty !!!");
+	}
+	else {
+		ptr = head;
+		ptr1 = ptr -> link;
+		while(ptr1 -> link != NULL) {
+			ptr = ptr -> link;
+			ptr1 = ptr1 -> link;
+		}
+		Ctemp = ptr -> link ;
+		ptr -> link = NULL;
+		free(Ctemp);
+	}
 }
 
 int printList() {
@@ -162,7 +193,7 @@ int main(){
 			case 5:
 				printf("Enter value that you want to delete: ");
 				scanf("%d",&value);
-				deletionAtAnyPosition();
+				deletionAtAnyPosition(value);
 				break;
 			case 6:
 				deletionAtEnd();
@@ -175,7 +206,6 @@ int main(){
 				return 0;
 			default:
 				printf("Invalid entry Read MENU and try again !!!!\n");
-
 		}
 	}
 	return 0;
