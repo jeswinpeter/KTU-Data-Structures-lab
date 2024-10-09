@@ -6,22 +6,23 @@ struct node {
 	struct node * link;
 };
 
+/*create() -> to create new nodes
+  Whenever a new node is created this function returns address of new node*/
 struct node * create() {
 	struct node *temp = (struct node *)malloc(sizeof(struct node));
-	/*printf("Created Node\n");*/
-
 	return temp;
 }
 
 struct node * head = NULL;
-struct node * ptr,*ptr1;
-struct node * Ctemp;
-struct node * tempH;
+struct node * ptr,*ptr1;		//Used to traverse the list
+struct node * Ctemp;			//Used for temporary storage of address 
+struct node * tempH;			//Used for temporary storage of address
 int pos;
 int value;
 
+/* insertionAtBegining() -> Inserts new node ad front of the list 
+	and returns new head */
 struct node * insertionAtBegining(struct node * head,int value){
-	
 	Ctemp = create();
 	if( Ctemp == NULL ) {
 		printf("!!! Memory Full !!!");
@@ -39,11 +40,11 @@ struct node * insertionAtBegining(struct node * head,int value){
 		head -> link = tempH;
 	}
 	return head;
-	
 }
 
+/* insertionAtAnyPoint() -> New node is added after the 
+	node containing 'int pos' in data part */
 int insertionAtAnyPoint(int pos, int value) {
-
 	Ctemp = create();
 	if( Ctemp == NULL ) {
 		printf("!!! Memory Full !!!");
@@ -55,7 +56,7 @@ int insertionAtAnyPoint(int pos, int value) {
 			ptr = ptr -> link;
 		}
 		if ( ptr == NULL ) {
-				printf("Error : Position element not found in the list !!!\n");
+			printf("Error : Position element not found in the list !!!\n");
 		}
 		else {
 			Ctemp -> link = ptr -> link;
@@ -63,11 +64,9 @@ int insertionAtAnyPoint(int pos, int value) {
 			ptr -> link = Ctemp;
 		}
 	}
-	
 }
 
 void insertionAtEnd(int value) {
-
 	Ctemp = create();
 	if( Ctemp == NULL ) {
 		printf("!!! Memory Full !!!");
@@ -81,11 +80,11 @@ void insertionAtEnd(int value) {
 		Ctemp -> link = NULL;
 		Ctemp -> data = value;
 	}
-	
 }
 
+/* deletionAtBegining -> deletes node at front and returns 
+	new head */
 struct node * deletionAtBegining(struct node * head) {
-
 	if(head == NULL) {
 		printf("The list is Empty !!!");
 	}
@@ -95,9 +94,10 @@ struct node * deletionAtBegining(struct node * head) {
 		free(Ctemp);
 		return head;
 	}
-
 }
 
+/* deletionAtAnyPosition() -> Deletes node containing 
+	'int value' in data part of the node */
 void deletionAtAnyPosition(int value) {
 	if(head == NULL) {
 		printf("The list is Empty !!!");
@@ -110,7 +110,7 @@ void deletionAtAnyPosition(int value) {
 			ptr1 = ptr1 -> link;
 		}
 		if ( ptr1 == NULL ) {
-				printf("Error : %d not found in the list !!!\n",value);
+			printf("Error : %d not found in the list !!!\n",value);
 		}
 		else {
 			Ctemp = ptr -> link ;
@@ -144,12 +144,12 @@ int printList() {
 	}
 	else {
 		ptr = head;
-		printf("------ Linked List ------\n");
+		printf("--------- Linked List ---------\n");
 		while(ptr != NULL) {
 			printf("%d\t",ptr -> data);
 			ptr = ptr -> link;
 		}
-		printf("\n-------------------------\n");
+		printf("\n-------------------------------\n");
 	}
 }
 
