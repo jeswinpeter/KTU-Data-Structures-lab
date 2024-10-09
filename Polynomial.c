@@ -10,7 +10,6 @@ void main() {
  int no_terms;
  int i;
  
- 
  printf("Enter no of terms in the polynomial: ");
  scanf("%d",&no_terms);
 

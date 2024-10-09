@@ -31,7 +31,7 @@ void dequeue() {
 	}
 	else {
 		printf("%d is dequeued\n",queue[front]);
-            	front = (front = 1) % Max_Size;
+            	front = (front + 1) % Max_Size;
 	}
 }
 
