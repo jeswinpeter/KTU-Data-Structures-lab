@@ -53,12 +53,12 @@ void display() {
 
 int main() {
 	int option;     //Variable to store the choice the user makes
-    	int value;      //Stores the value that is being enqueued to the que
+    int value;      //Stores the value that is being enqueued to the que
     	
     	printf("Enter Max_Size of the Queue -> ");
         scanf("%d",&Max_Size);
     	
-        //Menu
+        //--------------- Menu -----------------//
         printf("The operations that can be performed on a Circular Queue are listed below :\n");
         printf("1 -> Enqueue(Add element)\n");
         printf("2 -> Dequeue(remove element)\n");
