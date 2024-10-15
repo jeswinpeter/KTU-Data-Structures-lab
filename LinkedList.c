@@ -1,3 +1,4 @@
+/* This code Impements basic features of Linked list */
 #include<stdio.h>
 #include<stdlib.h>
 
