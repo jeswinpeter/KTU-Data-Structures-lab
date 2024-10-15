@@ -58,6 +58,7 @@ struct node * create_poly(int size,struct node * head) {
 }
 
 int print_Poly(struct node * head) {
+	printf("Printing......\n");
 	if(head == NULL) {
 		printf("Polynomial is EMPTY !!!!");
 		return 0;
@@ -77,9 +78,59 @@ int print_Poly(struct node * head) {
 	}
 }
 
-// void add_Poly(struct node * head,struct node * head2) {
+struct node * add_Poly(struct node * head,struct node * head2) {
+	p_ptr = head;
+	q_ptr = head2; 
+	// r_ptr = head_r;
+	while(q_ptr -> link != NULL || p_ptr -> link != NULL) {
+		printf("In adding loop....\nhead_r = %u\n",head_r);
+		if(head_r == NULL) {
+			head_r = create();
+			r_ptr = head_r;
+		}
+		if(p_ptr -> expo == q_ptr -> expo) {
+			r_ptr -> coeff = p_ptr -> coeff + q_ptr -> coeff;
+			r_ptr -> expo = p_ptr -> expo;
+			r_ptr -> link = create();
+			printf("rptr -> coeff = %d",r_ptr -> coeff);
+			p_ptr = p_ptr -> link;
+			q_ptr = q_ptr -> link;
+			r_ptr = r_ptr -> link;
+		}
+		else if (p_ptr -> expo > q_ptr -> expo) {
+			r_ptr -> coeff = p_ptr -> coeff;
+			r_ptr -> expo = p_ptr -> expo;
+			r_ptr -> link = create();
+			p_ptr = p_ptr -> link;
+			r_ptr = r_ptr -> link;
+		}
+		else if (q_ptr -> expo > p_ptr -> expo) {
+			r_ptr -> coeff = q_ptr -> coeff;
+			r_ptr -> expo = q_ptr -> expo;
+			r_ptr -> link = create();
+			q_ptr = q_ptr -> link;
+			r_ptr = r_ptr -> link;
+		}
 
-// }
+		if (p_ptr -> link == NULL) {
+			r_ptr -> coeff = p_ptr -> coeff;
+			r_ptr -> expo = p_ptr -> expo;
+			r_ptr -> link = create();
+			p_ptr = p_ptr -> link;
+			r_ptr = r_ptr -> link;
+		}
+		else if (q_ptr -> link == NULL) {
+			r_ptr -> coeff = q_ptr -> coeff;
+			r_ptr -> expo = q_ptr -> expo;
+			r_ptr -> link = create();
+			q_ptr = q_ptr -> link;
+			r_ptr = r_ptr -> link;
+		}
+	}	
+	r_ptr -> link = NULL;
+	printf("Completed Addition...");
+	return head_r;
+}
 
 int main() {
 	printf("Enter no of terms in the 1st polynomial: ");
@@ -87,7 +138,7 @@ int main() {
  	printf("\n----- 1st Polynomial -----\n");
 	head_p = create_poly(no_terms_1,head_p);
 
-	printf("Enter no of terms in the 2nd polynomial: ");
+	printf("\nEnter no of terms in the 2nd polynomial: ");
  	scanf("%d",&no_terms_2);
 	printf("\n----- 2nd Polynomial -----\n");
 	head_q = create_poly(no_terms_2,head_q);
@@ -99,10 +150,12 @@ int main() {
 	print_Poly(head_q);
 	printf("\n-------------------------------\n");
 
-	// add_Poly(head_p,head_q);
-	//printf("\n--------- Resultant Polynomial ---------\n");
-	// print_Poly(head_r);
-	//printf("\n-------------------------------\n");
+	head_r = add_Poly(head_p,head_q);
+	printf("Calling Print function");
+	printf("\n--------- Resultant Polynomial ---------\n");
+	print_Poly(head_r);
+	printf("\n-------------------------------\n");
+	return 0;
 }
 	
 		
