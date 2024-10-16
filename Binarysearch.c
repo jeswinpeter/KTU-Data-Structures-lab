@@ -42,25 +42,25 @@
     }
 
 //Binary search loop
- while(left <= right){
-    mid = (left + right)/2;
-    if(A[mid] == x)
-    {
-        flag = 2;    //Indicates that search element is found
-        break;
-        time += 3;
-    }
-    else if (x < A[mid])
-    {
-        right = mid - 1;
-        time += 2;
-    }
-    else if (x > A[mid])
-    {
-        left = mid + 1;
-        time += 2;
+    while(left <= right){
+        mid = (left + right)/2;
+        if(A[mid] == x)
+        {
+            flag = 2;    //Indicates that search element is found
+            break;
+            time += 3;
+        }
+        else if (x < A[mid])
+        {
+            right = mid - 1;
+            time += 2;
+        }
+        else if (x > A[mid])
+        {
+            left = mid + 1;
+            time += 2;
+        }  
     }  
-  }  
 
     //Result  
         if(flag == 2){
