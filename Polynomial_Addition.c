@@ -86,9 +86,6 @@ struct node * add_Poly(struct node * head,struct node * head2) {
 			r_ptr = head_r;
 		}
 		else {
-			// Ctemp = create();
-			// r_ptr -> link = Ctemp;
-			// r_ptr = Ctemp;
 			r_ptr -> link = create();
 			r_ptr = r_ptr -> link;
 		}
