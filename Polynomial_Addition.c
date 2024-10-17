@@ -58,7 +58,6 @@ struct node * create_poly(int size,struct node * head) {
 }
 
 int print_Poly(struct node * head) {
-	printf("Printing......\n");
 	if(head == NULL) {
 		printf("Polynomial is EMPTY !!!!");
 		return 0;
@@ -81,16 +80,17 @@ int print_Poly(struct node * head) {
 struct node * add_Poly(struct node * head,struct node * head2) {
 	p_ptr = head;
 	q_ptr = head2; 
-	// r_ptr = head_r;
-	while(q_ptr -> link != NULL && p_ptr -> link != NULL) {
+	while(q_ptr -> link != NULL || p_ptr -> link != NULL) {
 		if(head_r == NULL) {
 			head_r = create();
 			r_ptr = head_r;
 		}
 		else {
-			Ctemp = create();
-			r_ptr -> link = Ctemp;
-			r_ptr = Ctemp;
+			// Ctemp = create();
+			// r_ptr -> link = Ctemp;
+			// r_ptr = Ctemp;
+			r_ptr -> link = create();
+			r_ptr = r_ptr -> link;
 		}
 
 		if(p_ptr -> expo == q_ptr -> expo) {
@@ -120,8 +120,10 @@ struct node * add_Poly(struct node * head,struct node * head2) {
 			r_ptr -> expo = q_ptr -> expo;
 			q_ptr = q_ptr -> link;
 		}
+		if(p_ptr -> link == NULL && q_ptr -> link == NULL) {
+			r_ptr -> link = NULL;
+		}
 	}	
-	r_ptr -> link = NULL;
 	return head_r;
 }
 
