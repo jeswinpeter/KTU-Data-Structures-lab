@@ -24,7 +24,6 @@
     }
     time += 2;
 
-
 //begining of binary search
     int left = 0;       //used to indicate left most element of the part of the arraay that is being searched
     int right = n-1;    //used to indicate right most element of the part of the arraay that is being searched
@@ -44,6 +43,7 @@
 //Binary search loop
     while(left <= right){
         mid = (left + right)/2;
+        time += 2;
         if(A[mid] == x)
         {
             flag = 2;    //Indicates that search element is found
@@ -61,6 +61,7 @@
             time += 2;
         }  
     }  
+    time++;
 
     //Result  
         if(flag == 2){
