@@ -14,7 +14,7 @@ void main(){
     timecomplexity += 1; 
      scanf("%d",&sizeOfArray);
       timecomplexity += 1; 
-   printf("Enter values to array a[]\n");
+   printf("Enter values to array a[]: \n");
     timecomplexity += 1;  
        for(itration=0;itration<sizeOfArray;itration++){
           scanf("%d",&a[itration]);
@@ -26,15 +26,15 @@ void main(){
     timecomplexity += 1;
      scanf("%d",&searchElement);
       timecomplexity += 1;
-       for(itration=0;itration<sizeOfArray;itration++){
-            if(a[itration] == searchElement){
-                timecomplexity += 1;
-               count += 1;
-               printf("%d is found at position %d\n",searchElement,itration+1);
-                timecomplexity += 1;
-              }
-           timecomplexity += 1;
-          }
+      for(itration=0;itration<sizeOfArray;itration++){
+         if(a[itration] == searchElement){
+               timecomplexity += 1;
+            count += 1;
+            printf("%d is found at position %d\n",searchElement,itration+1);
+               timecomplexity += 1;
+         }
+         timecomplexity += 1;
+      }
          timecomplexity += 1; 
    if(count >= 1){
       timecomplexity += 1;
