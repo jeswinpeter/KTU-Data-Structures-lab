@@ -15,7 +15,6 @@ char pop() {
 	}
 }
 
-
 void push(char y) {
 	if(top >= 100 - 1) {
 		printf("The Stack is Full!!!");
@@ -24,7 +23,6 @@ void push(char y) {
 		stack[++top] = y;
 	}
 }
-
 
 //---- Checking Precedence ----
 int priority(char y) {
@@ -41,7 +39,6 @@ int priority(char y) {
 		return 4;
 	}
 }
-
 
 int main() {
 	char exp[40];
