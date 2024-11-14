@@ -16,19 +16,19 @@ int partition(int aray[],int lower,int upper) {
     pivot = aray[lower];
     start = lower;
     end = upper;
-while(start < end) {
-    while(aray[start] <= pivot) {
-        start++;
+    while(start < end) {
+        while(aray[start] <= pivot) {
+            start++;
+        }
+        while(aray[end] > pivot) {
+            end--;
+        }
+        if( start < end ) {
+            temp = aray[start];
+            aray[start] = aray[end];
+            aray[end] = temp;
+        } 
     }
-    while(aray[end] > pivot) {
-        end--;
-    }
-    if( start < end ) {
-        temp = aray[start];
-        aray[start] = aray[end];
-        aray[end] = temp;
-    } 
-}
 
 // --- Swapping ---
     temp = aray[lower];

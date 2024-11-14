@@ -92,7 +92,7 @@ struct node * deletionAtBegining(struct node * head) {
 	else {
 		Ctemp = head;
 		head = head -> link;
-		free(Ctemp);
+		free(Ctemp);	//deleting node from storage
 		return head;
 	}
 }
@@ -116,11 +116,12 @@ void deletionAtAnyPosition(int value) {
 		else {
 			Ctemp = ptr -> link ;
 			ptr -> link = ptr1 -> link;
-			free(Ctemp);
+			free(Ctemp);	//deleting node from storage
 		}
 	}
 }
 
+//Deletes node at the end of the list
 void deletionAtEnd() {
 	if(head == NULL) {
 		printf("The list is Empty !!!");
@@ -128,13 +129,14 @@ void deletionAtEnd() {
 	else {
 		ptr = head;
 		ptr1 = ptr -> link;
+		//Traversing to the end of the list
 		while(ptr1 -> link != NULL) {
 			ptr = ptr -> link;
 			ptr1 = ptr1 -> link;
 		}
 		Ctemp = ptr -> link ;
 		ptr -> link = NULL;
-		free(Ctemp);
+		free(Ctemp);	//deleting node from storage
 	}
 }
 
