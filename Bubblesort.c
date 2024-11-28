@@ -29,6 +29,7 @@
         }
       }
    }
+   
  printf("The sorted array is: \n");
 //loop to print the sorted array
    for (i = 0; i < n; i++)

@@ -55,7 +55,7 @@ int main() {
 			printf("%c ",*e);
 		}
 		else if(*e == '(') {        
-            push(*e);     	 //push '(' onto stack 
+            push(*e);     	 		//push '(' onto stack 
         }         
         else if(*e == ')')
         {
